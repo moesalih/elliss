@@ -1,0 +1,25 @@
+{
+	"hosting": {
+		"predeploy": "pushd elliss-react && npm run build && popd",
+		"public": "elliss-react/build",
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"rewrites": [
+			{
+				"source": "/metadata",
+				"function": "metadata"
+			},
+			{
+				"source": "/image",
+				"function": "image"
+			},
+			{
+				"source": "**",
+				"destination": "/index.html"
+			}
+		]
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "npx hardhat compile",
+			"label": "🎩 compile",
+			"options": {
+				"cwd": "./elliss-hardhat",
+			}
+		},
+		{
+			"type": "shell",
+			"command": "npx hardhat node",
+			"label": "🎩 node",
+			"options": {
+				"cwd": "./elliss-hardhat",
+			}
+		},
+		{
+			"type": "shell",
+			"command": "npx hardhat run scripts/deploy.js --network localhost",
+			"label": "🎩 run deploy localhost",
+			"options": {
+				"cwd": "./elliss-hardhat",
+			}
+		},
+		{
+			"type": "shell",
+			"command": "npx hardhat run scripts/deploy.js --network rinkeby",
+			"label": "🎩 run deploy rinkeby",
+			"options": {
+				"cwd": "./elliss-hardhat",
+			}
+		},
+
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "/elliss-react/",
+			"problemMatcher": [],
+			"label": "⚛️ start",
+		},
+		{
+			"type": "shell",
+			"command": "firebase serve --only functions",
+			"label": "🔥 serve functions",
+		},
+		{
+			"type": "shell",
+			"command": "firebase deploy --only functions",
+			"label": "🔥👍 functions",
+		},
+		{
+			"type": "shell",
+			"command": "firebase deploy --only hosting",
+			"label": "🔥👍 hosting",
+		},
+
+	]
+}

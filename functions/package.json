@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "convert-svg-to-png": "^0.5.0",
+    "firebase-admin": "^10.0.1",
+    "firebase-functions": "^3.16.0",
+    "instagram-private-api": "^1.31.0",
+    "svg.js": "^2.7.1",
+    "svg2img": "^0.9.4",
+    "svgdom": "0.0.20"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
