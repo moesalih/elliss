@@ -99,8 +99,11 @@ class Index extends React.Component {
 			console.log('Chain', network.chainId, chainConfig);
 			await this.setState({ chainConfig })
 
-			let accounts = await connection.request({ method: 'eth_requestAccounts' });
-			let account = accounts[0]
+			let signer = provider.getSigner()
+			let account = await signer.getAddress()
+			account = account.toLowerCase()
+			// let accounts = await connection.request({ method: 'eth_requestAccounts' });
+			// let account = accounts[0]
 			await this.setState({ account })
 			console.log('account', account);
 
