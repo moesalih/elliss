@@ -1,9 +1,9 @@
 /* global BigInt */
 
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { BigNumber, ethers } from 'ethers'
+import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
@@ -25,7 +25,16 @@ class Index extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { tokenId: 0 }
+
+		const faq = [
+			{q: 'How are the images generated?', a: 'Each image is completely unique and is generated based on the item number. The item number is used to seed a random number generator, then a set of random numbers is generated from that and used to randomize the parameters that go into the drawing algorithm.'},
+			{q: 'Can I mint any item number?', a: 'Yes, you can radomize to mint a random item, or you can enter your desired item number or even a hex value. This allows you to generate an item based on any number that is special to you including any ethereum address or an arbitrary transaction hash.'},
+			{q: 'How many unique items are possible?', a: 'There are ~9 quadrillion (2^53 - 1) possible items.'},
+			{q: 'Are there properties or traits for each item?', a: 'Yes, there are 6 properties encoded in each item’s metadata with varying probabilities. Those properties are typically displayed with each item in your wallet or on NFT marketplaces like OpenSea and LooksRare. The 6 properties are: Color Palette, Shapes, Transparency, Stroke Color, Stroke Width, Rotation.'},
+			{q: 'Is there a royalty fee on secondary sales?', a: 'Yes, there’s a 1% royalty on secondary sales to fund contract deployment and server costs.'},
+		]
+	
+		this.state = { tokenId: 0, faq }
 	}
 
 	async componentDidMount() {
@@ -77,7 +86,7 @@ class Index extends React.Component {
 
 
 	async connect() {
-		console.log('Contract ABI', Elliss.abi);
+		// console.log('Contract ABI', Elliss.abi);
 
 		try {
 			const web3Modal = new Web3Modal({ providerOptions })
@@ -87,7 +96,7 @@ class Index extends React.Component {
 			await this.setState({ provider })
 
 			let network = await provider.getNetwork()
-			console.log('web3Modal', connection, provider, network);
+			// console.log('web3Modal', connection, provider, network);
 
 			if (!network) return
 
@@ -109,7 +118,7 @@ class Index extends React.Component {
 
 			this.fetchPrice()
 			this.fetchOwner()
-			this.test()
+			// this.test()
 
 		} catch (err) {
 			console.log("Error:", err)
@@ -169,7 +178,7 @@ class Index extends React.Component {
 			console.log('tokenOwner:', tokenOwner)
 
 		} catch (err) {
-			console.log("Error:", err)
+			// console.log("Error:", err)
 		}
 	}
 	async mint() {
@@ -244,6 +253,17 @@ class Index extends React.Component {
 						<div className="mb-2">🌱&nbsp; 100% of minting fees go to fund Ethereum public goods on Gitcoin Grants.</div>
 						<div className="mb-2">📈&nbsp; Mint price goes up by 1% with every mint, starting at 0.01Ξ.</div>
 					</div>
+
+					<div className="mb-5  text-muted " style={{ 'maxWidth': '40em' }}>
+						<div className="mb-4 font-weight-bold" role="button" onClick={() => this.setState({ showFAQ: !this.state.showFAQ })}>FAQ {!this.state.showFAQ?'↓':'↑'}</div>
+						{this.state.showFAQ && this.state.faq.map((item, index) => 
+							<div key={index} className="mb-4 text-left">
+								<div className="font-weight-bold">{item.q}</div>
+								<div className="text-muted">{item.a}</div>
+							</div>
+						)}
+					</div>
+
 					<div className="mb-5 small text-muted">
 						Created by <a href="https://twitter.com/moesalih_" target="_blank" className="text-reset font-weight-bold my-2">MOΞ</a>
 						<span className="mx-2 text-black-50">·</span>
