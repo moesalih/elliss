@@ -13,6 +13,8 @@ async function main() {
 	// manually to make sure everything is compiled
 	// await hre.run('compile');
 
+	console.log("Deploying Elliss...");
+
 	// We get the contract to deploy
 	const Elliss = await hre.ethers.getContractFactory("Elliss");
 	const elliss = await Elliss.deploy();

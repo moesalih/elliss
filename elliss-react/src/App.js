@@ -93,7 +93,7 @@ class Index extends React.Component {
 
 			let chainConfig = config[parseInt(network.chainId)]
 			if (!chainConfig) {
-				window.alert('Current chain is not supported. ΞLLISS is only available on Rinkeby.')
+				window.alert('Current chain is not supported. ΞLLISS is only available on Ethereum mainnet or Rinkeby.')
 				return
 			}
 			console.log('Chain', network.chainId, chainConfig);
