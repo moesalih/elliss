@@ -267,6 +267,8 @@ class Index extends React.Component {
 					<div className="mb-5 small text-muted">
 						Created by <a href="https://twitter.com/moesalih_" target="_blank" className="text-reset font-weight-bold my-2">MOΞ</a>
 						<span className="mx-2 text-black-50">·</span>
+						<a href="https://etherscan.io/address/0xd3321d33f55b71bd4463b3584adbacce13b8e17f" target="_blank" className="text-reset text-decoration-none  ">Etherscan</a>
+						<span className="mx-2 text-black-50">·</span>
 						<a href="https://github.com/moesalih/elliss" target="_blank" className="text-reset text-decoration-none  ">GitHub</a>
 						<span className="mx-2 text-black-50">·</span>
 						<a href="https://instagram.com/elliss.xyz" target="_blank" className="text-reset text-decoration-none  ">Instagram</a>
