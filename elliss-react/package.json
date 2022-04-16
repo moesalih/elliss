@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@walletconnect/web3-provider": "^1.7.1",
+    "@rainbow-me/rainbowkit": "0.0.2",
     "bootstrap": "^4.6.1",
-    "ethers": "^5.4.7",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
-    "web3modal": "^1.9.5"
+    "ethers": "^5.6.4",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^3.1.1",
+    "wagmi": "^0.2.26"
   },
   "scripts": {
     "start": "react-scripts start",
